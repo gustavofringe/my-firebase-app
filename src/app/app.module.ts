@@ -5,8 +5,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppComponent} from './app.component';
-import { PatternValidator } from '@angular/forms';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyD9mtQ8vsTFqp-tdVLBZgvk83RicYlTJHg",
@@ -27,7 +27,8 @@ export const firebaseConfig = {
         HttpModule,
         AngularFireModule.initializeApp(firebaseConfig),
         AngularFireDatabaseModule,
-        AngularFireAuthModule
+        AngularFireAuthModule,
+        NgbModule.forRoot(),
     ],
     providers: [],
     bootstrap: [AppComponent]

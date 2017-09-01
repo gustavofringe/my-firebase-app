@@ -8,7 +8,12 @@ input.message {
   margin-bottom: 3em;
   padding:1.2em .7em;
 }
-
+button:hover{
+  background-color: black;
+}
+button:disabled{
+  background-color: #fff;
+}
 #details-container {
   display:flex;
   flex-direction: row;
