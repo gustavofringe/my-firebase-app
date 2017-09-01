@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
     contentVal: string = '';
     titleAlert:string = 'This field is required';
     @Output('confirm-click') click: any = new EventEmitter();
-    constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase, private modalService: NgbModal) {
+    constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase, public modalService: NgbModal) {
         this.items = af.list('/product-card', {
             query: {
                 limitToLast: 50
