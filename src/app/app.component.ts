@@ -1,19 +1,16 @@
-import {Component, Directive, HostListener, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, OnInit, Output, ViewChild} from '@angular/core';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {Observable} from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
-})
-@Directive({
-    selector: '[confirm]'
 })
 export class AppComponent implements OnInit {
     getDismissReason: any;
@@ -24,7 +21,6 @@ export class AppComponent implements OnInit {
     titleVal: string = '';
     sentenceVal: string = '';
     contentVal: string = '';
-    titleAlert:string = 'This field is required';
     @Output('confirm-click') click: any = new EventEmitter();
     constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase, public modalService: NgbModal) {
         this.items = af.list('/product-card', {
