@@ -1,16 +1,20 @@
 <div class="row columns">
-  <button (click)="login()" *ngIf="!(user | async)?.uid">Connexion anonyme</button>
-  <button (click)="logout()" *ngIf="(user | async)?.uid">Se déconnecter</button>
+<!--    <button (click)="login()" *ngIf="!(user | async)?.uid">Connexion anonyme</button>
+    <button (click)="logout()" *ngIf="(user | async)?.uid">Se déconnecter</button>-->
 
-  <input type="text" class="message" *ngIf="(user | async)?.uid" placeholder="Mais ! qu'est ce que tu fais?" (keyup.enter)="Send($event.target.value)" [(ngModel)]="titleVal" />
-  <input type="text" class="message" *ngIf="(user | async)?.uid" placeholder="Mais ! qu'est ce que tu fais?" (keyup.enter)="Send($event.target.value)" [(ngModel)]="sentenceVal" />
-  <textarea type="text" class="message" *ngIf="(user | async)?.uid" placeholder="Mais ! qu'est ce que tu fais?" (keyup.enter)="Send($event.target.value)" [(ngModel)]="contentVal" ></textarea>
-  <div id="details-container">
-    <div *ngFor="let item of items | async"><img src="../assets/images/pin.svg">
-      <p>{{item.title}}</p>
-      <p>{{item.sentence}}</p>
-      <p>{{item.content}}</p>
-    </div>
-  </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+        <input type="text" class="message" name="title" formControlName="title"/>
+        <input type="text" class="message" name="sentence" formControlName="sentence"/>
+        <textarea type="text" class="message" name="content" formControlName="content"></textarea>
+        <button>Send</button>
+    </form>
+    <!--<div id="details-container">
+        <div *ngFor="let item of items | async"><img src="../assets/images/pin.svg">
+            <p>{{item.title}}</p>
+            <p>{{item.sentence}}</p>
+            <p>{{item.content}}</p>
+            <button (click)="delete(item)">Delete</button>
+        </div>
+    </div>-->
 </div>
 

@@ -1,11 +1,12 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AngularFireModule} from 'angularfire2';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AppComponent} from './app.component';
+import { PatternValidator } from '@angular/forms';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyD9mtQ8vsTFqp-tdVLBZgvk83RicYlTJHg",
@@ -22,7 +23,7 @@ export const firebaseConfig = {
     ],
     imports: [
         BrowserModule,
-        FormsModule,
+        ReactiveFormsModule,
         HttpModule,
         AngularFireModule.initializeApp(firebaseConfig),
         AngularFireDatabaseModule,
