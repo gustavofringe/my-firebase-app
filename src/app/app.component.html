@@ -1,4 +1,3 @@
-
 <div class="container">
     <button class="btn btn-primary" (click)="login()" *ngIf="!(user | async)?.uid">Connexion anonyme</button>
     <button class="btn btn-danger" (click)="logout()" *ngIf="(user | async)?.uid">Se déconnecter</button>

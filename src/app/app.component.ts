@@ -1,11 +1,9 @@
-import {Component, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {Observable} from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import { EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-root',
@@ -13,16 +11,13 @@ import { EventEmitter } from '@angular/core';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-    getDismissReason: any;
-    closeResult: string;
     public form;
     user: Observable<firebase.User>;
     items: FirebaseListObservable<any[]>;
     titleVal: string = '';
     sentenceVal: string = '';
     contentVal: string = '';
-    @Output('confirm-click') click: any = new EventEmitter();
-    constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase, public modalService: NgbModal) {
+    constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
         this.items = af.list('/product-card', {
             query: {
                 limitToLast: 50
