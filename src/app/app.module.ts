@@ -8,11 +8,18 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
+import { UploadFormComponent } from './uploads/upload-form/upload-form.component';
+import { UploadListComponent } from './uploads/upload-list/upload-list.component';
+import { UploadDetailComponent } from './uploads/upload-detail/upload-detail.component';
+import {UploadService} from './uploads/shared/upload.service';
 export const firebaseConfig = environment.firebaseConfig;
 
 @NgModule({
     declarations: [
         AppComponent,
+        UploadFormComponent,
+        UploadListComponent,
+        UploadDetailComponent,
     ],
     imports: [
         BrowserModule,
@@ -23,7 +30,7 @@ export const firebaseConfig = environment.firebaseConfig;
         NgbModule.forRoot(),
         AngularFireModule.initializeApp(firebaseConfig),
     ],
-    providers: [],
+    providers: [UploadService],
     bootstrap: [AppComponent],
 })
 export class AppModule {

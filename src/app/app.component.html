@@ -27,12 +27,7 @@
                               formControlName="content" [(ngModel)]="contentVal"></textarea>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="inputTextarea" class="col-sm-2 col-form-label">Image</label>
-                <div class="col-sm-10">
-                    <input type="file">
-                </div>
-            </div>
+            <upload-list></upload-list>
             <button class="btn btn-primary" [disabled]="!form.valid">Send</button>
         </form>
         <table class="table">
