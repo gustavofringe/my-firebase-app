@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
 
 
     ngOnInit() {
+        // protect form
         this.form = new FormGroup({
             title: new FormControl("", Validators.compose([
                 Validators.required,
